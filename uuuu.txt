@@ -1,0 +1,35 @@
+ai_astrology_services/
+│
+├── backend/
+│   ├── app.py
+│   ├── routes/
+│   │    ├── compatibility.py
+│   │    ├── prediction.py
+│   │    └── naming.py
+│   │
+│   ├── agents/
+│   │    ├── compatibility_agent.py
+│   │    ├── prediction_agent.py
+│   │    └── naming_agent.py
+│   │
+│   ├── prompts/
+│   │    ├── horoscope_prompt.py
+│   │    ├── birthstar_prompt.py
+│   │    └── naming_prompt.py
+│   │
+│   ├── services/
+│   │    ├── openai_service.py
+│   │    └── orchestrator.py
+│   │
+│   └── models/
+│        └── schemas.py
+│
+├── frontend/
+│   ├── src/
+│   │   ├── pages/
+│   │   ├── components/
+│   │   └── api/
+│
+└── docs/
+
+npm create vite@latest frontend --template react
