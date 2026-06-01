@@ -1,26 +1,26 @@
-from openai import AsyncOpenAI
-import os
+from openai import OpenAI
 
-client=AsyncOpenAI(
-api_key=os.getenv(
-"OPENAI_API_KEY"
-)
+from config import (
+    OPENAI_API_KEY,
+    MODEL_NAME
 )
 
-async def ask_openai(prompt):
+client = OpenAI(
+    api_key=OPENAI_API_KEY
+)
 
-    response=await client.chat.completions.create(
 
-    model="gpt-4o-mini",
+def ask_openai(prompt):
 
-    messages=[
-    {
-    "role":"user",
-    "content":prompt
-    }
-    ]
+    response = client.chat.completions.create(
+        model=MODEL_NAME,
+
+        messages=[
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ]
     )
 
-    return response.choices[
-    0
-    ].message.content
+    return response.choices[0].message.content

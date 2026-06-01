@@ -1,9 +1,26 @@
-from flask import Blueprint, request, jsonify
+from fastapi import APIRouter
 
-compatibility_bp = Blueprint('compatibility', __name__)
+from models.schemas import (
+    HoroscopeMatchRequest
+)
 
-@compatibility_bp.route('/', methods=['POST'])
-def compatibility():
-    data = request.get_json(silent=True) or {}
-    # Placeholder: integrate compatibility_agent
-    return jsonify({"status": "ok", "input": data})
+from agents.compatibility_agent import (
+    horoscope_matching_agent
+)
+
+router = APIRouter()
+
+
+@router.post("/horoscope-match")
+def horoscope_match(
+    request: HoroscopeMatchRequest
+):
+
+    result = horoscope_matching_agent(
+        request
+    )
+
+    return {
+        "success": True,
+        "report": result
+    }

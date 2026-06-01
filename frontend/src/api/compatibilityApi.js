@@ -1,0 +1,13 @@
+const API_URL = "http://127.0.0.1:8000/horoscope-match";
+
+export const generateMatchReport = async (payload) => {
+  const response = await fetch(API_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  return await response.json();
+};

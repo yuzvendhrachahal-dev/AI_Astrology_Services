@@ -1,15 +1,16 @@
-from dataclasses import dataclass
-from typing import Optional
+from pydantic import BaseModel
 
-@dataclass
-class BirthData:
-    name: str
-    date: str  # YYYY-MM-DD
-    time: Optional[str] = None  # HH:MM
-    place: Optional[str] = None
 
-@dataclass
-class NamingPreferences:
-    gender: Optional[str] = None
-    origin: Optional[str] = None
-    meanings: Optional[list] = None
+class HoroscopeMatchRequest(BaseModel):
+
+    groom_name: str
+    groom_dob: str
+    groom_time: str
+    groom_country: str
+    groom_location: str
+
+    bride_name: str
+    bride_dob: str
+    bride_time: str
+    bride_country: str
+    bride_location: str

@@ -1,10 +1,30 @@
 from fastapi import FastAPI
-from routes.prediction import router
+from fastapi.middleware.cors import CORSMiddleware
 
-app=FastAPI()
+from routes.compatibility import (
+    router as compatibility_router
+)
 
-app.include_router(router)
+app = FastAPI(
+    title="AI Astrology Services"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.include_router(
+    compatibility_router
+)
+
 
 @app.get("/")
 def home():
-    return {"status":"running"}
+
+    return {
+        "message": "AI Astrology Services Running"
+    }
