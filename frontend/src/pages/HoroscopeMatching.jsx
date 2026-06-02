@@ -3,195 +3,195 @@ import { useState } from "react";
 import { generateMatchReport } from "../api/compatibilityApi";
 export default function HoroscopeMatching() {
 
- const [form,setForm] =
- useState({
+  const [form, setForm] =
+    useState({
 
-   groom_name:"",
-   groom_dob:"",
-   groom_time:"",
-   groom_country:"",
-   groom_location:"",
+      groom_name: "",
+      groom_dob: "",
+      groom_time: "",
+      groom_country: "",
+      groom_location: "",
 
-   bride_name:"",
-   bride_dob:"",
-   bride_time:"",
-   bride_country:"",
-   bride_location:""
- });
+      bride_name: "",
+      bride_dob: "",
+      bride_time: "",
+      bride_country: "",
+      bride_location: ""
+    });
 
- const [report,setReport] =
- useState("");
+  const [report, setReport] =
+    useState("");
 
- const submitForm =
- async () => {
+  const submitForm =
+    async () => {
 
-   const result =
-   await generateMatchReport(
-     form
-   );
+      const result =
+        await generateMatchReport(
+          form
+        );
 
-   setReport(
-     result.report
-   );
- };
+      setReport(
+        result.report
+      );
+    };
 
- return (
+  return (
 
- <div className="container">
+    <div className="container">
 
-   <h1>
-   AI Horoscope Matching
-   </h1>
+      <h1>
+        AI Horoscope Matching
+      </h1>
 
-   <h2>Groom Details</h2>
+      <h2>Groom Details</h2>
 
-   <input
-   placeholder="Name"
+      <input
+        placeholder="Name"
 
-   onChange={(e)=>
+        onChange={(e) =>
 
-   setForm({
-   ...form,
-   groom_name:e.target.value
-   })
+          setForm({
+            ...form,
+            groom_name: e.target.value
+          })
 
-   }
-   />
+        }
+      />
 
-   <input
-   type="date"
+      <input
+        type="date"
 
-   onChange={(e)=>
+        onChange={(e) =>
 
-   setForm({
-   ...form,
-   groom_dob:e.target.value
-   })
+          setForm({
+            ...form,
+            groom_dob: e.target.value
+          })
 
-   }
-   />
+        }
+      />
 
-   <input
-   type="time"
+      <input
+        type="time"
 
-   onChange={(e)=>
+        onChange={(e) =>
 
-   setForm({
-   ...form,
-   groom_time:e.target.value
-   })
+          setForm({
+            ...form,
+            groom_time: e.target.value
+          })
 
-   }
-   />
+        }
+      />
 
-   <input
-   placeholder="Country"
+      <input
+        placeholder="Country"
 
-   onChange={(e)=>
+        onChange={(e) =>
 
-   setForm({
-   ...form,
-   groom_country:e.target.value
-   })
+          setForm({
+            ...form,
+            groom_country: e.target.value
+          })
 
-   }
-   />
+        }
+      />
 
-   <input
-   placeholder="Birth Location"
+      <input
+        placeholder="Birth Location"
 
-   onChange={(e)=>
+        onChange={(e) =>
 
-   setForm({
-   ...form,
-   groom_location:e.target.value
-   })
+          setForm({
+            ...form,
+            groom_location: e.target.value
+          })
 
-   }
-   />
+        }
+      />
 
-   <h2>Bride Details</h2>
+      <h2>Bride Details</h2>
 
-   <input
-   placeholder="Name"
+      <input
+        placeholder="Name"
 
-   onChange={(e)=>
+        onChange={(e) =>
 
-   setForm({
-   ...form,
-   bride_name:e.target.value
-   })
+          setForm({
+            ...form,
+            bride_name: e.target.value
+          })
 
-   }
-   />
+        }
+      />
 
-   <input
-   type="date"
+      <input
+        type="date"
 
-   onChange={(e)=>
+        onChange={(e) =>
 
-   setForm({
-   ...form,
-   bride_dob:e.target.value
-   })
+          setForm({
+            ...form,
+            bride_dob: e.target.value
+          })
 
-   }
-   />
+        }
+      />
 
-   <input
-   type="time"
+      <input
+        type="time"
 
-   onChange={(e)=>
+        onChange={(e) =>
 
-   setForm({
-   ...form,
-   bride_time:e.target.value
-   })
+          setForm({
+            ...form,
+            bride_time: e.target.value
+          })
 
-   }
-   />
+        }
+      />
 
-   <input
-   placeholder="Country"
+      <input
+        placeholder="Country"
 
-   onChange={(e)=>
+        onChange={(e) =>
 
-   setForm({
-   ...form,
-   bride_country:e.target.value
-   })
+          setForm({
+            ...form,
+            bride_country: e.target.value
+          })
 
-   }
-   />
+        }
+      />
 
-   <input
-   placeholder="Birth Location"
+      <input
+        placeholder="Birth Location"
 
-   onChange={(e)=>
+        onChange={(e) =>
 
-   setForm({
-   ...form,
-   bride_location:e.target.value
-   })
+          setForm({
+            ...form,
+            bride_location: e.target.value
+          })
 
-   }
-   />
+        }
+      />
 
-   <button
-   onClick={submitForm}
-   >
-     Generate Match Report
-   </button>
+      <button
+        onClick={submitForm}
+      >
+        Generate Match Report
+      </button>
 
-   <div
-   className="report-box"
-   >
-     <pre>
-       {report}
-     </pre>
-   </div>
+      <div
+        className="report-box"
+      >
+        <pre>
+          {report}
+        </pre>
+      </div>
 
- </div>
+    </div>
 
- );
+  );
 }
