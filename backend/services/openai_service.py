@@ -14,6 +14,9 @@ def ask_openai(prompt):
 
     response = client.chat.completions.create(
         model=MODEL_NAME,
+        response_format={
+        "type":"json_object"
+    },
 
         messages=[
             {

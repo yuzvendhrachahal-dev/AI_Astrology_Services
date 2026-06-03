@@ -1,5 +1,7 @@
+import json
+
 from prompts.horoscope_prompt import (
-    build_horoscope_prompt
+    horoscope_prompt
 )
 
 from services.openai_service import (
@@ -9,8 +11,8 @@ from services.openai_service import (
 
 def horoscope_matching_agent(data):
 
-    prompt = build_horoscope_prompt(data)
+    prompt = horoscope_prompt(data)
 
     result = ask_openai(prompt)
 
-    return result
+    return json.loads(result)

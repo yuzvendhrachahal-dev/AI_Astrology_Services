@@ -1,32 +1,99 @@
-def build_horoscope_prompt(data):
+def horoscope_prompt(data):
 
     return f"""
-You are an experienced Vedic Astrology Marriage Matching Expert.
+You are a Vedic Astrology Marriage Matching Engine.
 
-GROOM
+INPUT:
 
+Groom:
 Name: {data.groom_name}
 DOB: {data.groom_dob}
 Time: {data.groom_time}
-Country: {data.groom_country}
 Location: {data.groom_location}
 
-BRIDE
-
+Bride:
 Name: {data.bride_name}
 DOB: {data.bride_dob}
 Time: {data.bride_time}
-Country: {data.bride_country}
 Location: {data.bride_location}
 
-Generate:
+Generate ONLY valid JSON.
 
-1. Horoscope Matching Summary
-2. Compatibility Overview
-3. Relationship Strengths
-4. Potential Challenges
-5. Marriage Guidance
-6. Compatibility Rating (Low / Average / Good / Excellent)
+Schema:
 
+{{
+ "BoyNakshatra":"",
+ "BoyZodiac":"",
+ "GirlNakshatra":"",
+ "GirlZodiac":"",
+ "BoyLagna":"",
+ "GirlLagna":"",
+ "TotalValue":0,
+
+ "Dhina": {{
+   "CompatibilityName":"",
+   "Status":"",
+   "StatusDescription":""
+ }},
+
+ "Gana": {{
+   "CompatibilityName":"",
+   "Status":"",
+   "StatusDescription":""
+ }},
+
+ "Mahendra": {{
+   "CompatibilityName":"",
+   "Status":"",
+   "StatusDescription":""
+ }},
+
+ "StreeDeerga": {{
+   "CompatibilityName":"",
+   "Status":"",
+   "StatusDescription":""
+ }},
+
+ "Yoni": {{
+   "CompatibilityName":"",
+   "Status":"",
+   "StatusDescription":""
+ }},
+
+ "Rasi": {{
+   "CompatibilityName":"",
+   "Status":"",
+   "StatusDescription":""
+ }},
+
+ "Rasiyathipaty": {{
+   "CompatibilityName":"",
+   "Status":"",
+   "StatusDescription":""
+ }},
+
+ "Vasya": {{
+   "CompatibilityName":"",
+   "Status":"",
+   "StatusDescription":""
+ }},
+
+ "Rajju": {{
+   "CompatibilityName":"",
+   "Status":"",
+   "StatusDescription":""
+ }},
+
+ "Nadi": {{
+   "CompatibilityName":"",
+   "Status":"",
+   "StatusDescription":""
+ }},
+
+ "Summary":""
+}}
+
+Return JSON only.
 Return clean formatted text.
 """
+
